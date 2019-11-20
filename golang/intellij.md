@@ -7,7 +7,7 @@
 * Go plugin
 * Version > 2019.2
 
-# How to set up development environment
+## How to set up development environment
 
 1. [Docker Setting]()
 2. [Docker Tools Setting]()
@@ -37,3 +37,9 @@ EOF
     - `docker-compose build --no-cache`
 7. Create docker container for development
     - `docker-compose up -d`
+
+## Usage
+
+Please read Makefile
+
+* `docker-compose run --rm godev $(MAKE_COMMAND)`
