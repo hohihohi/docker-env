@@ -27,9 +27,9 @@ RUN USER=docker && \
 
 USER docker:docker
 
-# Install latest packages for development (golangci-lint)
-RUN go get -u github.com/golangci/golangci-lint && \
-  go get -u github.com/go-delve/delve/cmd/dlv && \
+# Install packages for development (golangci-lint and delve)
+RUN go get -u github.com/go-delve/delve/cmd/dlv && \
   go build -o /go/bin/dlv github.com/go-delve/delve/cmd/dlv
+RUN curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh| sh -s -- -b $(go env GOPATH)/bin v$GOLANGCILINT_VERSION
 
 ENTRYPOINT ["fixuid", "-q"]
